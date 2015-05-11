@@ -8,6 +8,11 @@
     float:left;
 }
 
+.details h3{
+    margin-top:0;
+    margin-bottom:5px;
+}
+
 .details p {
 	margin-top: 0px;
 	margin-bottom: 8px;
@@ -18,6 +23,9 @@
     margin-bottom:5px;
 }
 
+.weddingItem img{
+	width:100px;
+}
 .formitem{
     width:100%;
     display: table; 
