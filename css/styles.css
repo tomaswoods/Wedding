@@ -1,0 +1,39 @@
+.weddingPic {
+	float: left;
+	padding-right: 10px;
+	padding-bottom: 16px;
+}
+
+.details{
+    float:left;
+}
+
+.details p {
+	margin-top: 0px;
+	margin-bottom: 8px;
+}
+
+.weddingItem{
+	clear: both;
+    margin-bottom:5px;
+}
+
+.formitem{
+    width:100%;
+    display: table; 
+    padding-bottom:5px;
+}
+
+.formsend{
+    width:100%;
+    display: table; 
+}
+
+.frmlbl{
+    width:30%;
+    display: table-cell;
+}
+
+.frmimput{
+    display: table-cell;
+}
