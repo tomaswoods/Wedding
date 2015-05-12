@@ -4,6 +4,15 @@
 	padding-bottom: 16px;
 }
 
+hr {
+  border:none;
+  border-top:1px dotted #2a2a2a;
+  color:#fff;
+  background-color:#fff;
+  height:1px;
+  width:100%;
+}
+
 .details{
     float:left;
 }
@@ -16,7 +25,7 @@
 
 .details p {
 	margin-top: 0px;
-	margin-bottom: 8px;
+	margin-bottom: 3px;
 }
 
 .weddingItem{
@@ -25,7 +34,7 @@
 }
 
 .weddingItem img{
-	width:100px;
+	width:80px;
 }
 .formitem{
     width:100%;
