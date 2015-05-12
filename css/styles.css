@@ -23,9 +23,10 @@ hr {
     margin-bottom:5px;
 }
 
-.details p {
+.details p {    
+    font-size:0.9em;
 	margin-top: 0px;
-	margin-bottom: 3px;
+	margin-bottom: 1px;
 }
 
 .weddingItem{
