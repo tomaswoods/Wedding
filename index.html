@@ -5,25 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="css/jquery.mobile-1.0rc1.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <script>
-    function onBodyLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-    </script>
-
 </head>
-
 <body>
-
     <div  data-role="page">
         <div data-role="header" data-position="fixed">
-            <h1>Our Wedding</h1>
+            <h1>Claire McIntyre &amp; Tomás Woods</h1>
         </div>
         <div data-role="content">
-            <ul id="employeeList" data-role="listview" >
+            <ul data-role="listview" >
                 <li><a href="details.html">Wedding details</a></li>
-                <li><a id="tochurch">Directions to Church</a></li>
-                <li><a href="https://www.google.es/maps/dir/'54.068952, -7.863361'/'54.096932, -7.557577'@54.0899808,-7.8577205,11z/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-7.863361!2d54.068952!1m3!2m2!1d-7.557577!2d54.096932!3e0">Directions from Church to Reception</a></li>
+                <li><a id="tochurch">Directions from here to Church</a></li>
+                <li><a href="https://www.google.ie/maps/dir/'54.068952, -7.863361'/'54.096932, -7.557577'@54.0899808,-7.8577205,11z/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-7.863361!2d54.068952!1m3!2m2!1d-7.557577!2d54.096932!3e0">Directions from Church to Reception</a></li>
                 <li><a href="rsvp.html">R.S.V.P</a></li>
             </ul>
         </div>
@@ -48,32 +40,15 @@
         // The scope of 'this' is the event. In order to call the 'receivedEvent'
         // function, we must explicity call 'app.receivedEvent(...);'
         onDeviceReady: function () {
-            var networkState = navigator.network.connection.type;
-            var states = {};
-            states[Connection.UNKNOWN] = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI] = 'WiFi connection';
-            states[Connection.CELL_2G] = 'Cell 2G connection';
-            states[Connection.CELL_3G] = 'Cell 3G connection';
-            states[Connection.CELL_4G] = 'Cell 4G connection';
-            states[Connection.NONE] = 'No network connection';
-            if (networkState != Connection.NONE) {
                 app.receivedEvent('deviceready');
-            }
-            else {
-                navigator.notification.alert('No internet connection', null, 'Connection Error', 'OK');
-            }
-
-
         },
         // Update DOM on a Received Event
         receivedEvent: function (id) {
             console.log('Cordova device ready event: ' + id);
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    $("#tochurch").attr("href", "https://www.google.es/maps/dir/'" + position.coords.latitude + "," + position.coords.longitude + "/54.068952, -7.863361'/@54.0899808,-7.8577205,11z/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-7.863361!2d54.068952!1m3!2m2!1d-7.557577!2d54.096932!3e0");
+                navigator.geolocation.getCurrentPosition(function (position) {54.069064, -7.863497
+                    $("#tochurch").attr("href", "https://www.google.ie/maps/dir/'" + position.coords.latitude + "," + position.coords.longitude + "'/'54.068952, -7.863361'/@53.732877,-7.672516,9z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x0:0x0!2m2!1d-6.2514348!2d53.4043225!1m5!1m1!1s0x0:0x0!2m2!1d-7.863361!2d54.068952!3e0");
                 },
                 function (error) {
-                    // error getting GPS coordinates
                     alert('code: ' + error.code + ' with message: ' + error.message + '\n');
                 },
                 { enableHighAccuracy: true, maximumAge: 3000, timeout: 5000 });
