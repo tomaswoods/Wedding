@@ -66,13 +66,14 @@
             });
            
             $('#tochurch').click(function () {
+                var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
                 navigator.geolocation.getCurrentPosition(function (position) {
                     window.open("https://www.google.ie/maps/dir/'" + position.coords.latitude + "," + position.coords.longitude + "'/'54.068952, -7.863361'/@53.732877,-7.672516,9z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x0:0x0!2m2!1d-6.2514348!2d53.4043225!1m5!1m1!1s0x0:0x0!2m2!1d-7.863361!2d54.068952!3e0", '_system');
                 },
                 function (error) {
                     alert('code: ' + error.code + ' with message: ' + error.message + '\n');
                 },
-                { enableHighAccuracy: true, maximumAge: 3000, timeout: 5000 });
+                options);
             });
         },
         handleExternalURLs: function () {
