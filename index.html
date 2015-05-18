@@ -9,7 +9,7 @@
 <body>
     <div  data-role="page">
         <div data-role="header" data-position="fixed">
-            <h1>Claire McIntyre &amp; Tomás Woods</h1>
+            <h1>Claire &amp; Tomás Wedding</h1>
         </div>
         <div data-role="content">
             <ul data-role="listview" >
@@ -23,6 +23,7 @@
     </div>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.0rc1.min.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript">
     var app = {
         // Application Constructor
@@ -53,7 +54,7 @@
             $('#addtoCalendar').click(function () {
                 var startDate = new Date("August 3, 2015 13:00:00");
                 var endDate = new Date("August 4, 2013 14:30:00");
-                var title = "Clare & Tomas Wedding";
+                var title = "Clare & Tomás Wedding";
                 var location = "Aughnasheelin";
                 var notes = "";
                 var success = function (message) { alert("Success: " + JSON.stringify(message)); };
