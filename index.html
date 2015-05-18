@@ -15,8 +15,9 @@
             <ul data-role="listview" >
                 <li><a href="details.html">Wedding details</a></li>
                 <li><a href="#" id="tochurch">Directions from here to Church</a></li>
-                <li><a href="https://www.google.ie/maps/dir/'54.068952, -7.863361'/'54.096932, -7.557577'@54.0899808,-7.8577205,11z/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-7.863361!2d54.068952!1m3!2m2!1d-7.557577!2d54.096932!3e0">Directions from Church to Reception</a></li>
+                <li><a href="#" id="tovenue">Directions from Church to Reception</a></li>
                 <li><a href="rsvp.html">R.S.V.P</a></li>
+                <li><a href="#" id="addtoCalendar">Add to Calendar</a></li>
             </ul>
         </div>
     </div>
@@ -48,7 +49,22 @@
         // Update DOM on a Received Event
         receivedEvent: function (id) {
             console.log('Cordova device ready event: ' + id);
-            $('#tochurch').click(function() {
+            
+            $('#addtoCalendar').click(function () {
+                var startDate = new Date("August 3, 2015 13:00:00");
+                var endDate = new Date("August 4, 2013 14:30:00");
+                var title = "Clare & Tomas Wedding";
+                var location = "Aughnasheelin";
+                var notes = "";
+                var success = function (message) { alert("Success: " + JSON.stringify(message)); };
+                var error = function (message) { alert("Error: " + message); };
+                window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);
+            });
+            $('#tovenue').click(function () {
+                window.open(" https://www.google.ie/maps/dir/'54.068952, -7.863361'/'54.096932, -7.557577'@54.0899808,-7.8577205,11z/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-7.863361!2d54.068952!1m3!2m2!1d-7.557577!2d54.096932!3e0", '_system');
+            });
+           
+            $('#tochurch').click(function () {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     window.open("https://www.google.ie/maps/dir/'" + position.coords.latitude + "," + position.coords.longitude + "'/'54.068952, -7.863361'/@53.732877,-7.672516,9z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x0:0x0!2m2!1d-6.2514348!2d53.4043225!1m5!1m1!1s0x0:0x0!2m2!1d-7.863361!2d54.068952!3e0", '_system');
                 },
@@ -56,7 +72,7 @@
                     alert('code: ' + error.code + ' with message: ' + error.message + '\n');
                 },
                 { enableHighAccuracy: true, maximumAge: 3000, timeout: 5000 });
-            });                
+            });
         },
         handleExternalURLs: function () {
             // Handle click events for all external URLs
