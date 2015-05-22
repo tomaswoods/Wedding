@@ -16,7 +16,7 @@
                 <li><a href="details.html">Wedding details</a></li>
                 <li><a href="#" id="tochurch">Directions from here to Church</a></li>
                 <li><a href="#" id="tovenue">Directions from Church to Reception</a></li>
-                <li><a href="#" id="rsvp">R.S.V.P</a></li>
+                <li><a href="rsvp.html" id="rsvp">R.S.V.P</a></li>
                 <li><a href="#" id="addtoCalendar">Add to Calendar</a></li>
             </ul>
         </div>
@@ -69,9 +69,6 @@
                 window.plugins.calendar.createEvent(title, location, notes, startDate, endDate, success, error);
             });
             
-            $('#rsvp').click(function () {
-                window.location.replace("rsvp.html");
-            });
             $('#tovenue').click(function () {
                 window.open("https://www.google.ie/maps/dir/'54.068952, -7.863361'/'54.096932, -7.557577'@54.0899808,-7.8577205,11z/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-7.863361!2d54.068952!1m3!2m2!1d-7.557577!2d54.096932!3e0", '_system');
             });
