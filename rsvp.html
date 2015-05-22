@@ -2,6 +2,42 @@
 <html>
 <head>
     <title>Claire McIntyre &amp; Tomás Woods</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.0rc1.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.0rc1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#send").click(function () {
+                var firstname = $('#firstperson').val();
+                var secondname = $('#secondperson').val();
+                var data = {};
+                if (firstname)
+                {
+                    data.firstName = firstname;
+                    if (secondname) {
+                        data.secondName = secondname;
+                    }
+                    else {
+                        data.secondName = " ";
+                    }
+                    
+                    $.mobile.loading("show");
+                    $.post("http://www.tomaswoods.ie/Wedding/rsvp.ashx", data)
+                   .done(function (data) {
+                       $('#firstperson').val("");
+                       $('#secondperson').val("");
+                       alert(data);
+                   })
+                    .fail(function () {
+                        alert("Error : RSVP has not been recieved, please try again.");
+                    })
+                }
+            });
+        });
+       
+    </script>
+
 </head>
 
 <body>
@@ -11,17 +47,17 @@
         </div>
         <div data-role="content">
             <div class="formitem">
-                <div class="frmlbl">First Name</div>
-                <div class="frmimput"><input type="text" name="fistname" /></div>
+                <div class="frmlbl">First Guest</div>
+                <div class="frmimput"><input type="text" name="firstperson" id="firstperson" /></div>
             </div>
             <div class="formitem">
-                <div class="frmlbl">Second Name</div>
-                <div class="frmimput"><input type="text" name="secondname" /></div>
+                <div class="frmlbl">Second Guest</div>
+                <div class="frmimput"><input type="text" name="secondperson" id="secondperson" /></div>
             </div>
             <div class="formsend">
-                <input type="button" class="but" value="Send"/>
+                <input type="button" id="send" class="but" value="Send"/>
             </div>
         </div>
     </div>
-</body>
+    </body>
 </html>
